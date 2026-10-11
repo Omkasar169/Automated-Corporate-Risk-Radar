@@ -10,6 +10,7 @@ import { CompanyCard } from './company-card'
 import { IntelligenceFeed } from './intelligence-feed'
 import { KpiStrip } from './kpi-strip'
 import { RadarHeader } from './radar-header'
+import { RiskAnalytics } from './risk-analytics'
 import { SCAN_STEPS, ScanStatus } from './scan-status'
 
 interface Selection {
@@ -98,7 +99,6 @@ export function RiskDashboard({
       <main className="mx-auto max-w-[1600px] space-y-6 px-4 py-6 lg:px-6">
         <ScanStatus meta={meta} scanning={scanning} step={step} />
         <KpiStrip snapshots={snapshots} />
-
         <section aria-labelledby="portfolio-heading">
           <div className="mb-3 flex items-end justify-between">
             <h2 id="portfolio-heading" className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
@@ -120,6 +120,8 @@ export function RiskDashboard({
             ))}
           </div>
         </section>
+
+        <RiskAnalytics snapshots={snapshots} scannedAt={meta.scannedAt} />
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
           <div className="lg:col-span-2">
